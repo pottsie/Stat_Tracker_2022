@@ -45,7 +45,6 @@ struct PlayerProfileView: View {
 struct PlayerProfileView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerProfileView(player: dev.player)
-            .preferredColorScheme(.dark)
     }
 }
 

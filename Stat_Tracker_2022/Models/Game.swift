@@ -18,4 +18,14 @@ struct Game: Identifiable {
     let isFutsal: Bool
     let statistics: Statistics
     
+    var gameResult: String {
+        if ourScore > opponentScore {
+            return "W \(ourScore)-\(opponentScore)"
+        } else if ourScore < opponentScore {
+            return "L \(ourScore)-\(opponentScore)"
+        } else {
+            return "T \(ourScore)-\(opponentScore)"
+        }
+    }
+    
 }

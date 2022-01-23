@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct TabbedHomeView: View {
+    @EnvironmentObject private var playerVM: PlayerProfileViewModel
+    
     var body: some View {
         TabView {
-//            PlayerProfileView(player: )
-            Text("Player Profile")
+            PlayerProfileView(player: playerVM.player)
                 .tabItem {
                     Label("Player Profile", systemImage: "person.crop.square")
                 }
@@ -30,5 +31,6 @@ struct TabbedHomeView: View {
 struct TabbedHomeView_Previews: PreviewProvider {
     static var previews: some View {
         TabbedHomeView()
+            .environmentObject(PlayerProfileViewModel())
     }
 }

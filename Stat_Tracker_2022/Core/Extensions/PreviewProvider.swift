@@ -22,9 +22,10 @@ class DeveloperPreview {
     
     // Define example PlayerProfile and Game data below
     let player = PlayerProfile(
-        id: UUID().uuidString,
+//        id: UUID().uuidString,
         name: "Michael Potts",
         position: "Goalkeeper",
+        isGoalie: false,
         jerseyNumber: "4",
         dateOfBirth: Date("2007-01-05"),
         ageGroup: "U-15",
@@ -40,7 +41,7 @@ class DeveloperPreview {
         ourScore: 3,
         opponentScore: 1,
         notes: "This was a great game defensively. Has 2 good shots.",
-        isFutsal: false,
+        isFutsal: true,
         statistics: Statistics(
             goals: 1,
             assists: 1,

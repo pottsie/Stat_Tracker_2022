@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct Stat_Tracker_2022App: App {
+    @StateObject var playerVM: PlayerProfileViewModel = PlayerProfileViewModel()
+    @StateObject var gameVM: GameViewModel = GameViewModel()
+
     var body: some Scene {
         WindowGroup {
             TabbedHomeView()
+                .environmentObject(playerVM)
+                .environmentObject(gameVM)
         }
     }
 }

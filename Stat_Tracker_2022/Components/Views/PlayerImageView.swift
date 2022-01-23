@@ -16,7 +16,7 @@ struct PlayerImageView: View {
             .scaledToFit()
             .clipShape(Circle())
             .frame(width: size, height: size)
-            .overlay(Circle().stroke(lineWidth: 3))
+            .overlay(Circle().stroke(Color.theme.accent, lineWidth: 3))
             .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 0)
             .padding()
     }
