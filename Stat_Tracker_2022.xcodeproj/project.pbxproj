@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		27588EF5279D7CDC00724229 /* Stat_Tracker_2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588EF4279D7CDC00724229 /* Stat_Tracker_2022App.swift */; };
-		27588EF7279D7CDC00724229 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588EF6279D7CDC00724229 /* ContentView.swift */; };
+		27588EF7279D7CDC00724229 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588EF6279D7CDC00724229 /* TabView.swift */; };
 		27588EF9279D7CDE00724229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27588EF8279D7CDE00724229 /* Assets.xcassets */; };
 		27588EFC279D7CDE00724229 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27588EFB279D7CDE00724229 /* Preview Assets.xcassets */; };
+		27588F06279D7DD100724229 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588F05279D7DD100724229 /* PreviewProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27588EF1279D7CDC00724229 /* Stat_Tracker_2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stat_Tracker_2022.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27588EF4279D7CDC00724229 /* Stat_Tracker_2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat_Tracker_2022App.swift; sourceTree = "<group>"; };
-		27588EF6279D7CDC00724229 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		27588EF6279D7CDC00724229 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		27588EF8279D7CDE00724229 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27588EFB279D7CDE00724229 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		27588F05279D7DD100724229 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				27588EF4279D7CDC00724229 /* Stat_Tracker_2022App.swift */,
-				27588EF6279D7CDC00724229 /* ContentView.swift */,
+				27588F02279D7D3100724229 /* Core */,
 				27588EF8279D7CDE00724229 /* Assets.xcassets */,
 				27588EFA279D7CDE00724229 /* Preview Content */,
 			);
@@ -65,6 +67,47 @@
 				27588EFB279D7CDE00724229 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		27588F02279D7D3100724229 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				27588F04279D7DB600724229 /* Extensions */,
+				27588F03279D7D3C00724229 /* Home */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		27588F03279D7D3C00724229 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				27588F07279D7EEA00724229 /* Views */,
+				27588F08279D7EF600724229 /* View Models */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		27588F04279D7DB600724229 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				27588F05279D7DD100724229 /* PreviewProvider.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		27588F07279D7EEA00724229 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27588EF6279D7CDC00724229 /* TabView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		27588F08279D7EF600724229 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +180,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27588EF7279D7CDC00724229 /* ContentView.swift in Sources */,
+				27588EF7279D7CDC00724229 /* TabView.swift in Sources */,
+				27588F06279D7DD100724229 /* PreviewProvider.swift in Sources */,
 				27588EF5279D7CDC00724229 /* Stat_Tracker_2022App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
