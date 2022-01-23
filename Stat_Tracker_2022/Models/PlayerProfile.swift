@@ -12,6 +12,7 @@ struct PlayerProfile: Identifiable {
     let id: String
     let name: String
     let position: String
+    let jerseyNumber: String
     let dateOfBirth: Date
     let ageGroup: String
     let team: String

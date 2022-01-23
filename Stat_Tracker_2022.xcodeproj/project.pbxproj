@@ -14,6 +14,11 @@
 		27588F0A279D820200724229 /* TabbedHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588F09279D820200724229 /* TabbedHomeView.swift */; };
 		27588F0D279D823900724229 /* PlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588F0C279D823800724229 /* PlayerProfile.swift */; };
 		27588F0F279D8A2D00724229 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588F0E279D8A2D00724229 /* Color.swift */; };
+		27588F11279DB15C00724229 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588F10279DB15C00724229 /* Game.swift */; };
+		27588F13279DB16900724229 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588F12279DB16900724229 /* Statistics.swift */; };
+		27588F15279DB38B00724229 /* PlayerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588F14279DB38B00724229 /* PlayerProfileView.swift */; };
+		27588F17279DB42700724229 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588F16279DB42700724229 /* Date.swift */; };
+		27588F19279DB42F00724229 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588F18279DB42F00724229 /* Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,11 @@
 		27588F09279D820200724229 /* TabbedHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedHomeView.swift; sourceTree = "<group>"; };
 		27588F0C279D823800724229 /* PlayerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProfile.swift; sourceTree = "<group>"; };
 		27588F0E279D8A2D00724229 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		27588F10279DB15C00724229 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		27588F12279DB16900724229 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		27588F14279DB38B00724229 /* PlayerProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProfileView.swift; sourceTree = "<group>"; };
+		27588F16279DB42700724229 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		27588F18279DB42F00724229 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,7 @@
 		27588F03279D7D3C00724229 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				27588F09279D820200724229 /* TabbedHomeView.swift */,
 				27588F07279D7EEA00724229 /* Views */,
 				27588F08279D7EF600724229 /* View Models */,
 			);
@@ -97,6 +108,8 @@
 			children = (
 				27588F05279D7DD100724229 /* PreviewProvider.swift */,
 				27588F0E279D8A2D00724229 /* Color.swift */,
+				27588F16279DB42700724229 /* Date.swift */,
+				27588F18279DB42F00724229 /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -104,7 +117,7 @@
 		27588F07279D7EEA00724229 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				27588F09279D820200724229 /* TabbedHomeView.swift */,
+				27588F14279DB38B00724229 /* PlayerProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				27588F0C279D823800724229 /* PlayerProfile.swift */,
+				27588F10279DB15C00724229 /* Game.swift */,
+				27588F12279DB16900724229 /* Statistics.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,10 +209,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27588F13279DB16900724229 /* Statistics.swift in Sources */,
 				27588F0D279D823900724229 /* PlayerProfile.swift in Sources */,
+				27588F11279DB15C00724229 /* Game.swift in Sources */,
+				27588F15279DB38B00724229 /* PlayerProfileView.swift in Sources */,
 				27588F0A279D820200724229 /* TabbedHomeView.swift in Sources */,
 				27588F06279D7DD100724229 /* PreviewProvider.swift in Sources */,
 				27588F0F279D8A2D00724229 /* Color.swift in Sources */,
+				27588F17279DB42700724229 /* Date.swift in Sources */,
+				27588F19279DB42F00724229 /* Double.swift in Sources */,
 				27588EF5279D7CDC00724229 /* Stat_Tracker_2022App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

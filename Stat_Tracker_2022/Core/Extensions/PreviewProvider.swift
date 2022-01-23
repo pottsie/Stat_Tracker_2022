@@ -13,7 +13,6 @@ extension PreviewProvider {
     static var dev: DeveloperPreview {
         return DeveloperPreview.instance
     }
-    
 }
 
 class DeveloperPreview {
@@ -26,11 +25,30 @@ class DeveloperPreview {
         id: UUID().uuidString,
         name: "Michael Potts",
         position: "Goalkeeper",
-        dateOfBirth: Date(),
+        jerseyNumber: "4",
+        dateOfBirth: Date("2007-01-05"),
         ageGroup: "U-15",
         team: "The All-Stars",
         email: "pottsma@me.com",
         cellPhone: "571-255-0187",
         twitter: "@mikepotts",
         instagram: "@mapottsie")
+    
+    let game = Game(
+        opponent: "Arlington Blue 2007B",
+        dateOfGame: Date("2022-01-02"),
+        ourScore: 3,
+        opponentScore: 1,
+        notes: "This was a great game defensively. Has 2 good shots.",
+        isFutsal: false,
+        statistics: Statistics(
+            goals: 1,
+            assists: 1,
+            shots: 3,
+            shotsOnGoal: 1,
+            passAttempts: 7,
+            passCompletions: 6,
+            blocks: 1,
+            clearances: 2,
+            interceptions: 3))
 }
