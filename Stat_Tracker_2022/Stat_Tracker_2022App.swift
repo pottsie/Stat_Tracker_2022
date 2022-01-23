@@ -11,7 +11,7 @@ import SwiftUI
 struct Stat_Tracker_2022App: App {
     var body: some Scene {
         WindowGroup {
-            TabView()
+            TabbedHomeView()
         }
     }
 }
