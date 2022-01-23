@@ -13,64 +13,31 @@ struct PlayerProfileView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text(player.name)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-//                    .foregroundColor(Color.red)
-                    .padding()
-                Image("profile.jpeg")
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(Circle())
-                    .frame(width: 250, height: 250)
-                    .overlay(Circle().stroke(lineWidth: 3))
-                    .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 0)
-                VStack {
-                Text("#\(player.jerseyNumber)")
-                Text(player.position)
-                Text(player.dateOfBirth.asString() + " (\(player.ageGroup))")
-                }
-                .font(.title2)
-                .foregroundColor(.secondary)
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Email".uppercased())
-                            .font(.caption)
-                        Text(player.email)
-                            .font(.body)
-                            .fontWeight(.heavy)
-                    }
-                    Spacer()
-                    VStack(alignment: .trailing) {
-                        Text("Phone".uppercased())
-                            .font(.caption)
-                        Text(player.cellPhone)
-                            .font(.body)
-                            .fontWeight(.heavy)
-                    }
-                }
-                .padding()
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Twitter".uppercased())
-                            .font(.caption)
-                        Text(player.twitter)
-                            .font(.body)
-                            .fontWeight(.heavy)
-                    }
-                    Spacer()
-                    VStack(alignment: .trailing) {
-                        Text("Instagram".uppercased())
-                            .font(.caption)
-                        Text(player.instagram)
-                            .font(.body)
-                            .fontWeight(.heavy)
-                    }
-                }
-                .padding()
+//                header
+                PlayerImageView(size: 250)
+                soccerData
+                contactData
+                socialData
+                
                 Spacer()
             }
-            .navigationBarHidden(true)
+            .navigationTitle(player.name)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        //
+                    } label: {
+                        Label("Settings", systemImage: "gear")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        //
+                    } label: {
+                        Label("Edit profile", systemImage: "pencil")
+                    }
+                }
+            }
         }
     }
 }
@@ -78,5 +45,76 @@ struct PlayerProfileView: View {
 struct PlayerProfileView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerProfileView(player: dev.player)
+            .preferredColorScheme(.dark)
+    }
+}
+
+extension PlayerProfileView {
+//    var header: some View {
+//        Text(player.name)
+//            .font(.largeTitle)
+//            .fontWeight(.bold)
+//            .foregroundColor(Color.theme.accent)
+//            .padding()
+//    }
+    
+    var soccerData: some View {
+        VStack {
+            Text("#\(player.jerseyNumber)")
+            Text(player.position)
+            Text(player.dateOfBirth.asString() + " (\(player.ageGroup))")
+        }
+        .font(.title2)
+        .foregroundColor(Color.theme.secondaryText)
+    }
+    
+    var contactData: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Email".uppercased())
+                    .font(.caption)
+                    .foregroundColor(Color.theme.secondaryText)
+
+                Text(player.email)
+                    .font(.body)
+                    .fontWeight(.heavy)
+            }
+            Spacer()
+            VStack(alignment: .trailing) {
+                Text("Phone".uppercased())
+                    .font(.caption)
+                    .foregroundColor(Color.theme.secondaryText)
+
+                Text(player.cellPhone)
+                    .font(.body)
+                    .fontWeight(.heavy)
+            }
+        }
+        .padding()
+    }
+    
+    var socialData: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Twitter".uppercased())
+                    .font(.caption)
+                    .foregroundColor(Color.theme.secondaryText)
+
+                Text(player.twitter)
+                    .font(.body)
+                    .fontWeight(.heavy)
+            }
+            Spacer()
+            VStack(alignment: .trailing) {
+                Text("Instagram".uppercased())
+                    .font(.caption)
+                    .foregroundColor(Color.theme.secondaryText)
+
+                Text(player.instagram)
+                    .font(.body)
+                    .fontWeight(.heavy)
+            }
+        }
+        .padding()
     }
 }

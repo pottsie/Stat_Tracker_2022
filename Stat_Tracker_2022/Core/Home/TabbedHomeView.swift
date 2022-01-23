@@ -10,6 +10,7 @@ import SwiftUI
 struct TabbedHomeView: View {
     var body: some View {
         TabView {
+//            PlayerProfileView(player: )
             Text("Player Profile")
                 .tabItem {
                     Label("Player Profile", systemImage: "person.crop.square")
