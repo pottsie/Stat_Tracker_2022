@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct PlayerProfile: Identifiable {
+struct PlayerProfile: Identifiable, Codable {
     
-    let id: String = "profile"
+    var id: String = "profile"
     var name: String
     var position: String
     var isGoalie: Bool
@@ -17,11 +17,12 @@ struct PlayerProfile: Identifiable {
     var dateOfBirth: Date
     var ageGroup: String
     var team: String
-    var email: String?
-    var cellPhone: String?
-    var twitter: String?
-    var instagram: String?
+    var email: String
+    var cellPhone: String
+    var twitter: String
+    var instagram: String
     
+    // initialize a default player, if there is no json data
     init() {
         self.name = "Full Name"
         self.position = "Position"
@@ -32,22 +33,20 @@ struct PlayerProfile: Identifiable {
         self.team = "Team Name"
         self.email = "myemail@domain.com"
         self.cellPhone = "000-000-0000"
-        self.twitter = nil
+        self.twitter = ""
         self.instagram = "myInstagram"
     }
     
-//    init(name: String, position: String, isGoalie: Bool, jerseyNumber: String, dateOfBirth: Date = Date("2010-01-05"), ageGroup: String, team: String, email: String?, cellPhone: String?, twitter: String?, instagram: String?) {
-//        self.name = name
-//        self.position = position
-//        self.isGoalie = isGoalie
-//        self.jerseyNumber = jerseyNumber
-//        self.dateOfBirth = dateOfBirth
-//        self.ageGroup = ageGroup
-//        self.team = team
-//        self.email = email
-//        self.cellPhone = cellPhone
-//        self.twitter = twitter
-//        self.instagram = instagram
-//    }
+    func json() throws -> Data {
+        return try JSONEncoder().encode(self)
+    }
     
+    init(url: URL) throws {
+        let data = try Data(contentsOf: url)
+        self = try PlayerProfile(json: data)
+    }
+    
+    init(json: Data) throws {
+        self = try JSONDecoder().decode(PlayerProfile.self, from: json)
+    }
 }

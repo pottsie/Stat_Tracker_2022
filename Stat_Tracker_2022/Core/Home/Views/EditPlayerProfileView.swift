@@ -9,11 +9,8 @@ import SwiftUI
 
 struct EditPlayerProfileView: View {
     @Binding var player: PlayerProfile
+    @EnvironmentObject private var playerVM: PlayerProfileViewModel
     @Environment(\.dismiss) var dismiss
-    @State var email = ""
-    @State var cellPhone = ""
-    @State var twitter = ""
-    @State var instagram = ""
     
     var body: some View {
         VStack {
@@ -31,6 +28,7 @@ struct EditPlayerProfileView: View {
                     TextField("Name", text: $player.name)
                     TextField("Position", text: $player.position)
                     TextField("Jersey number", text: $player.jerseyNumber)
+                        .keyboardType(.numberPad)
                     DatePicker("Date of Birth",
                                selection: $player.dateOfBirth,
                                in: ...Date(),
@@ -43,11 +41,15 @@ struct EditPlayerProfileView: View {
                 } header: {
                     Text("Soccer Data")
                 }
-                Section  {
-                    TextField("Email", text: $email)
-                    TextField("Phone", text: $cellPhone)
-                    TextField("Twitter", text: $twitter)
-                    TextField("Instagram", text: $instagram)
+                Section {
+                    TextField("Email", text: $player.email)
+                        .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.never)
+                    TextField("Phone", text: $player.cellPhone)
+                    TextField("Twitter", text: $player.twitter)
+                        .textInputAutocapitalization(.never)
+                    TextField("Instagram", text: $player.instagram)
+                        .textInputAutocapitalization(.never)
 
                 } header: {
                     Text("Contact Data (Optional)")
@@ -58,6 +60,7 @@ struct EditPlayerProfileView: View {
             HStack {
                 Spacer()
                 Button {
+                    playerVM.updateProfileInformation()
                     // View Model needs to
                     // process contact data to String?, if necessary
                     // save profile data
@@ -92,6 +95,7 @@ struct EditPlayerProfileView: View {
 struct EditPlayerProfileView_Previews: PreviewProvider {
     static var previews: some View {
         EditPlayerProfileView(player: .constant(dev.player))
+            .environmentObject(PlayerProfileViewModel())
             
     }
 }

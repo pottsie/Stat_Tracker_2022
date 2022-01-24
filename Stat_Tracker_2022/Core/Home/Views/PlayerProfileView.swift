@@ -84,17 +84,17 @@ extension PlayerProfileView {
     
     var contactData: some View {
         VStack {
-            if let email = playerVM.player.email {
-                contactDataView(label: "Email", value: email)
+            if !playerVM.player.email.isEmpty {
+                contactDataView(label: "Email", value: playerVM.player.email)
             }
-            if let phone = playerVM.player.cellPhone {
-                contactDataView(label: "Phone", value: phone)
+            if !playerVM.player.cellPhone.isEmpty {
+                contactDataView(label: "Phone", value: playerVM.player.cellPhone)
             }
-            if let twitter = playerVM.player.twitter {
-                contactDataView(label: "Twitter", value: twitter)
+            if !playerVM.player.twitter.isEmpty {
+                contactDataView(label: "Twitter", value: playerVM.player.twitter)
             }
-            if let instagram = playerVM.player.instagram {
-                contactDataView(label: "Instagram", value: instagram)
+            if !playerVM.player.instagram.isEmpty {
+                contactDataView(label: "Instagram", value: playerVM.player.instagram)
             }
         }
     }
