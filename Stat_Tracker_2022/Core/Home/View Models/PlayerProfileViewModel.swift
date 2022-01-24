@@ -21,7 +21,7 @@ class PlayerProfileViewModel: ObservableObject {
     }
     
     func saveImage() {
-        LocalFileManager.instance.saveImage(image: profileImage!, name: "profile")
+        LocalFileManager.instance.saveImage(image: profileImage ?? UIImage(named: "profile-default")!, name: "profile")
     }
     
     // update the player profile information
