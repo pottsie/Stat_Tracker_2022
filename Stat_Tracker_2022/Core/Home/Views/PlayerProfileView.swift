@@ -8,55 +8,45 @@
 import SwiftUI
 
 struct PlayerProfileView: View {
-    let player: PlayerProfile
+    @EnvironmentObject private var playerVM: PlayerProfileViewModel
+//    let player: PlayerProfile
+    @State var showProfileEditSheet: Bool = false
     
     var body: some View {
         NavigationView {
             VStack {
-//                header
                 PlayerImageView(size: 200)
+                
                 soccerData
-                    .padding(.bottom)
                 
-                if let email = player.email {
-                    socialMedia(label: "Email", value: email)
-                }
-                if let phone = player.cellPhone {
-                    socialMedia(label: "Phone", value: phone)
-                }
-                if let twitter = player.twitter {
-                    socialMedia(label: "Twitter", value: twitter)
-                }
-                if let instagram = player.instagram {
-                    socialMedia(label: "Instagram", value: instagram)
-                }
-                
-//                contactData
-//                socialData
+                contactData
                 
                 Spacer()
             }
-            .navigationTitle(player.name)
+            .navigationTitle(playerVM.player.name)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        //
+                        // TODO: Define settings
                     } label: {
                         Label("Settings", systemImage: "gear")
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        //
+                        showProfileEditSheet.toggle()
                     } label: {
                         Label("Edit profile", systemImage: "pencil")
                     }
                 }
             }
+            .sheet(isPresented: $showProfileEditSheet) {
+                EditPlayerProfileView(player: $playerVM.player)
+            }
         }
     }
     
-    func socialMedia(label: String, value: String) -> some View {
+    func contactDataView(label: String, value: String) -> some View {
         HStack {
             VStack(alignment: .leading) {
                 Text(label.uppercased())
@@ -73,26 +63,39 @@ struct PlayerProfileView: View {
 
 struct PlayerProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerProfileView(player: dev.player)
+        PlayerProfileView()
+            .environmentObject(PlayerProfileViewModel())
     }
 }
 
 extension PlayerProfileView {
-//    var header: some View {
-//        Text(player.name)
-//            .font(.largeTitle)
-//            .fontWeight(.bold)
-//            .foregroundColor(Color.theme.accent)
-//            .padding()
-//    }
     
     var soccerData: some View {
         VStack {
-            Text("#\(player.jerseyNumber)")
-            Text(player.position)
-            Text(player.dateOfBirth.asString() + " (\(player.ageGroup))")
+            Text("#\(playerVM.player.jerseyNumber)")
+            Text(playerVM.player.position)
+            Text(playerVM.player.dateOfBirth.asString() + " (\(playerVM.player.ageGroup))")
         }
         .font(.title2)
         .foregroundColor(Color.theme.secondaryText)
+        .padding(.bottom)
+
+    }
+    
+    var contactData: some View {
+        VStack {
+            if let email = playerVM.player.email {
+                contactDataView(label: "Email", value: email)
+            }
+            if let phone = playerVM.player.cellPhone {
+                contactDataView(label: "Phone", value: phone)
+            }
+            if let twitter = playerVM.player.twitter {
+                contactDataView(label: "Twitter", value: twitter)
+            }
+            if let instagram = playerVM.player.instagram {
+                contactDataView(label: "Instagram", value: instagram)
+            }
+        }
     }
 }

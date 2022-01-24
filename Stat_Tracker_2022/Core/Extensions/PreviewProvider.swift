@@ -21,19 +21,19 @@ class DeveloperPreview {
     private init() { }
     
     // Define example PlayerProfile and Game data below
-    let player = PlayerProfile(
+    let player = PlayerProfile()
 //        id: UUID().uuidString,
-        name: "Michael Potts",
-        position: "Goalkeeper",
-        isGoalie: false,
-        jerseyNumber: "4",
-        dateOfBirth: Date("2007-01-05"),
-        ageGroup: "U-15",
-        team: "The All-Stars",
-        email: "pottsma@me.com",
-        cellPhone: "571-255-0187",
-        twitter: nil,
-        instagram: "@mapottsie")
+//        name: "Michael Potts",
+//        position: "Goalkeeper",
+//        isGoalie: false,
+//        jerseyNumber: "4",
+//        dateOfBirth: Date("2007-01-05"),
+//        ageGroup: "U-15",
+//        team: "The All-Stars",
+//        email: "pottsma@me.com",
+//        cellPhone: "571-255-0187",
+//        twitter: nil,
+//        instagram: "@mapottsie")
     
     let game = Game(
         opponent: "Arlington Blue 2007B",

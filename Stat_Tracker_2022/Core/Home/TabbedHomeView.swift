@@ -12,7 +12,7 @@ struct TabbedHomeView: View {
     
     var body: some View {
         TabView {
-            PlayerProfileView(player: playerVM.player)
+            PlayerProfileView()
                 .tabItem {
                     Label("Player Profile", systemImage: "person.crop.square")
                 }
