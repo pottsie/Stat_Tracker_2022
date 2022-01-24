@@ -14,10 +14,25 @@ struct PlayerProfileView: View {
         NavigationView {
             VStack {
 //                header
-                PlayerImageView(size: 250)
+                PlayerImageView(size: 200)
                 soccerData
-                contactData
-                socialData
+                    .padding(.bottom)
+                
+                if let email = player.email {
+                    socialMedia(label: "Email", value: email)
+                }
+                if let phone = player.cellPhone {
+                    socialMedia(label: "Phone", value: phone)
+                }
+                if let twitter = player.twitter {
+                    socialMedia(label: "Twitter", value: twitter)
+                }
+                if let instagram = player.instagram {
+                    socialMedia(label: "Instagram", value: instagram)
+                }
+                
+//                contactData
+//                socialData
                 
                 Spacer()
             }
@@ -39,6 +54,20 @@ struct PlayerProfileView: View {
                 }
             }
         }
+    }
+    
+    func socialMedia(label: String, value: String) -> some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(label.uppercased())
+                    .font(.caption)
+                    .foregroundColor(Color.theme.secondaryText)
+                Text(value)
+                    .fontWeight(.heavy)
+            }
+            Spacer()
+        }
+        .padding([.horizontal, .bottom])
     }
 }
 
@@ -65,55 +94,5 @@ extension PlayerProfileView {
         }
         .font(.title2)
         .foregroundColor(Color.theme.secondaryText)
-    }
-    
-    var contactData: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text("Email".uppercased())
-                    .font(.caption)
-                    .foregroundColor(Color.theme.secondaryText)
-
-                Text(player.email)
-                    .font(.body)
-                    .fontWeight(.heavy)
-            }
-            Spacer()
-            VStack(alignment: .trailing) {
-                Text("Phone".uppercased())
-                    .font(.caption)
-                    .foregroundColor(Color.theme.secondaryText)
-
-                Text(player.cellPhone)
-                    .font(.body)
-                    .fontWeight(.heavy)
-            }
-        }
-        .padding()
-    }
-    
-    var socialData: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text("Twitter".uppercased())
-                    .font(.caption)
-                    .foregroundColor(Color.theme.secondaryText)
-
-                Text(player.twitter)
-                    .font(.body)
-                    .fontWeight(.heavy)
-            }
-            Spacer()
-            VStack(alignment: .trailing) {
-                Text("Instagram".uppercased())
-                    .font(.caption)
-                    .foregroundColor(Color.theme.secondaryText)
-
-                Text(player.instagram)
-                    .font(.body)
-                    .fontWeight(.heavy)
-            }
-        }
-        .padding()
     }
 }

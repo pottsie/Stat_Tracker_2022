@@ -17,10 +17,10 @@ struct PlayerProfile: Identifiable {
     let dateOfBirth: Date
     let ageGroup: String
     let team: String
-    let email: String
-    let cellPhone: String
-    let twitter: String
-    let instagram: String
+    let email: String?
+    let cellPhone: String?
+    let twitter: String?
+    let instagram: String?
     
     init() {
         self.name = "Full Name"
@@ -36,7 +36,7 @@ struct PlayerProfile: Identifiable {
         self.instagram = "myInstagram"
     }
     
-    init(name: String, position: String, isGoalie: Bool, jerseyNumber: String, dateOfBirth: Date = Date("2010-01-05"), ageGroup: String, team: String, email: String, cellPhone: String, twitter: String, instagram: String) {
+    init(name: String, position: String, isGoalie: Bool, jerseyNumber: String, dateOfBirth: Date = Date("2010-01-05"), ageGroup: String, team: String, email: String?, cellPhone: String?, twitter: String?, instagram: String?) {
         self.name = name
         self.position = position
         self.isGoalie = isGoalie

@@ -32,7 +32,7 @@ class DeveloperPreview {
         team: "The All-Stars",
         email: "pottsma@me.com",
         cellPhone: "571-255-0187",
-        twitter: "@mikepotts",
+        twitter: nil,
         instagram: "@mapottsie")
     
     let game = Game(
