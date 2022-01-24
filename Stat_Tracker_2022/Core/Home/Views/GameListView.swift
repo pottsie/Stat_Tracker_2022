@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameListView: View {
     @EnvironmentObject private var gameVM: GameViewModel
+    @State var showAddGameSheet: Bool = false
     
     var body: some View {
         NavigationView {
@@ -16,7 +17,11 @@ struct GameListView: View {
                 ForEach(gameVM.filteredGameList()) { game in
                     GameLineItemView(game: game)
                 }
+                .onDelete(perform: gameVM.deleteGame)
             }
+            .fullScreenCover(isPresented: $showAddGameSheet, content: {
+                AddGameView()
+            })
             .listStyle(PlainListStyle())
             .navigationTitle(title)
             .toolbar {
@@ -25,7 +30,7 @@ struct GameListView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        //
+                        showAddGameSheet.toggle()
                     } label: {
                         Label("Add game", systemImage: "plus.circle")
                     }

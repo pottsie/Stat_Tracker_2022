@@ -16,7 +16,7 @@ struct TabbedHomeView: View {
                 .tabItem {
                     Label("Player Profile", systemImage: "person.crop.square")
                 }
-            Text("Games")
+            GameListView()
                 .tabItem {
                     Label("Games", systemImage: "list.bullet")
                 }

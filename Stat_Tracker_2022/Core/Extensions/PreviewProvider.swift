@@ -43,6 +43,7 @@ class DeveloperPreview {
         notes: "This was a great game defensively. Has 2 good shots.",
         isFutsal: true,
         statistics: Statistics(
+            minutesPlayed: 65,
             goals: 1,
             assists: 1,
             shots: 3,

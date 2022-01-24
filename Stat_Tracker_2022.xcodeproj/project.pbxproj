@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273BE518279E1F84009CEA6B /* AddGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BE517279E1F84009CEA6B /* AddGameView.swift */; };
 		27588EF5279D7CDC00724229 /* Stat_Tracker_2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27588EF4279D7CDC00724229 /* Stat_Tracker_2022App.swift */; };
 		27588EF9279D7CDE00724229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27588EF8279D7CDE00724229 /* Assets.xcassets */; };
 		27588EFC279D7CDE00724229 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27588EFB279D7CDE00724229 /* Preview Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		273BE517279E1F84009CEA6B /* AddGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameView.swift; sourceTree = "<group>"; };
 		27588EF1279D7CDC00724229 /* Stat_Tracker_2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stat_Tracker_2022.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27588EF4279D7CDC00724229 /* Stat_Tracker_2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat_Tracker_2022App.swift; sourceTree = "<group>"; };
 		27588EF8279D7CDE00724229 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				27588F14279DB38B00724229 /* PlayerProfileView.swift */,
 				27588F20279DF3B100724229 /* GameListView.swift */,
 				27588F27279DFC1300724229 /* GameLineItemView.swift */,
+				273BE517279E1F84009CEA6B /* AddGameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				27588F28279DFC1300724229 /* GameLineItemView.swift in Sources */,
 				27588F19279DB42F00724229 /* Double.swift in Sources */,
 				27588EF5279D7CDC00724229 /* Stat_Tracker_2022App.swift in Sources */,
+				273BE518279E1F84009CEA6B /* AddGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

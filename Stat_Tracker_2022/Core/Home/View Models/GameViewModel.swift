@@ -22,4 +22,15 @@ class GameViewModel: ObservableObject {
         }
     }
     
+    // MARK: User intents
+    
+    func deleteGame(indices: IndexSet) {
+        games.remove(atOffsets: indices)
+    }
+    
+    func addGame(opponent: String, dateOfGames: Date, ourScore: Int, opponentScore: Int, isFutsal: Bool, notes: String, stats: Statistics) {
+        let newGame = Game(opponent: opponent, dateOfGame: dateOfGames, ourScore: ourScore, opponentScore: opponentScore, notes: notes, isFutsal: isFutsal, statistics: stats)
+        games.append(newGame)
+    }
+    
 }

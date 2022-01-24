@@ -9,6 +9,7 @@ import Foundation
 
 struct Statistics {
     
+    let minutesPlayed: Int
     let goals: Int
     let assists: Int
     let shots: Int
