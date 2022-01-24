@@ -11,17 +11,22 @@ struct EditPlayerProfileView: View {
     @Binding var player: PlayerProfile
     @EnvironmentObject private var playerVM: PlayerProfileViewModel
     @Environment(\.dismiss) var dismiss
+    @State var showPhotoPicker: Bool = false
     
     var body: some View {
         VStack {
             HStack {
-            PlayerImageView(size: 100)
-                // add onTapGesture to image and then add functionality for picking an image
-                // from the users photo library
+                PlayerImageView(profileImage: playerVM.profileImage, size: 100)
+                    .onTapGesture {
+                        showPhotoPicker.toggle()
+                    }
                 Text("Tap image to choose a new profile picture.")
                     .foregroundColor(Color.theme.secondaryText)
                     .italic()
                     .multilineTextAlignment(.center)
+            }
+            .sheet(isPresented: $showPhotoPicker) {
+                PhotoPicker(profileImage: $playerVM.profileImage)
             }
             Form {
                 Section {
@@ -61,10 +66,6 @@ struct EditPlayerProfileView: View {
                 Spacer()
                 Button {
                     playerVM.updateProfileInformation()
-                    // View Model needs to
-                    // process contact data to String?, if necessary
-                    // save profile data
-
                     dismiss()
                 } label: {
                     Text("Save".uppercased())

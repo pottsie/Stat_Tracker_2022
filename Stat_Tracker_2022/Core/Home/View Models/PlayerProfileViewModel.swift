@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 class PlayerProfileViewModel: ObservableObject {
     @Published var player: PlayerProfile
+    @Published var profileImage: UIImage? = LocalFileManager.instance.getImage(name: "profile")
     
     init() {
         if let url = profilePersistenceConstants.url, let autoSavedProfile = try? PlayerProfile(url: url) {
@@ -18,29 +20,13 @@ class PlayerProfileViewModel: ObservableObject {
         }
     }
     
+    func saveImage() {
+        LocalFileManager.instance.saveImage(image: profileImage!, name: "profile")
+    }
+    
     // update the player profile information
     func updateProfileInformation() {
-//        if email.isEmpty {
-//            player.email = ""
-//        } else {
-//            player.email = email
-//        }
-//        if cellPhone.isEmpty {
-//            player.cellPhone = ""
-//        } else {
-//            player.cellPhone = cellPhone
-//        }
-//        if twitter.isEmpty {
-//            player.twitter = ""
-//        } else {
-//            player.twitter = twitter
-//        }
-//        if instagram.isEmpty {
-//            player.instagram = ""
-//        } else {
-//            player.instagram = instagram
-//        }
-        
+        saveImage()
         autoSave()
     }
     
