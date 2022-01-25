@@ -15,79 +15,15 @@ struct EditPlayerProfileView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                PlayerImageView(profileImage: playerVM.profileImage, size: 100)
-                    .onTapGesture {
-                        showPhotoPicker.toggle()
-                    }
-                Text("Tap image to choose a new profile picture.")
-                    .foregroundColor(Color.theme.secondaryText)
-                    .italic()
-                    .multilineTextAlignment(.center)
-            }
-            .sheet(isPresented: $showPhotoPicker) {
-                PhotoPicker(profileImage: $playerVM.profileImage)
-            }
+            imageSelectionSection
+                .sheet(isPresented: $showPhotoPicker) {
+                    PhotoPicker(profileImage: $playerVM.profileImage)
+                }
             Form {
-                Section {
-                    TextField("Name", text: $player.name)
-                    TextField("Position", text: $player.position)
-                    TextField("Jersey number", text: $player.jerseyNumber)
-                        .keyboardType(.numberPad)
-                    DatePicker("Date of Birth",
-                               selection: $player.dateOfBirth,
-                               in: ...Date(),
-                               displayedComponents: [.date]
-                    )
-                    TextField("Team", text: $player.team)
-                    TextField("Age group", text: $player.ageGroup)
-                    Toggle("Goalie?", isOn: $player.isGoalie)
-
-                } header: {
-                    Text("Soccer Data")
-                }
-                Section {
-                    TextField("Email", text: $player.email)
-                        .keyboardType(.emailAddress)
-                        .textInputAutocapitalization(.never)
-                    TextField("Phone", text: $player.cellPhone)
-                    TextField("Twitter", text: $player.twitter)
-                        .textInputAutocapitalization(.never)
-                    TextField("Instagram", text: $player.instagram)
-                        .textInputAutocapitalization(.never)
-
-                } header: {
-                    Text("Contact Data (Optional)")
-                }
+                soccerDataSection
+                contactDataSection
             }
-            
-            // move buttons out of main view, create a view modified for the button style
-            HStack {
-                Spacer()
-                Button {
-                    playerVM.updateProfileInformation()
-                    dismiss()
-                } label: {
-                    Text("Save".uppercased())
-                        .foregroundColor(.white)
-                        .bold()
-                        .frame(width: 120, height: 40)
-                        .background(Color.green)
-                        .cornerRadius(10)
-                }
-                Spacer()
-                Button {
-                    dismiss()
-                } label: {
-                    Text("Cancel".uppercased())
-                        .foregroundColor(.white)
-                        .bold()
-                        .frame(width: 120, height: 40)
-                        .background(Color.red)
-                        .cornerRadius(10)
-                }
-                Spacer()
-            }
+            buttons
             Spacer()
         }
     }
@@ -98,5 +34,103 @@ struct EditPlayerProfileView_Previews: PreviewProvider {
         EditPlayerProfileView(player: .constant(dev.player))
             .environmentObject(PlayerProfileViewModel())
             
+    }
+}
+
+extension EditPlayerProfileView {
+    var imageSelectionSection: some View {
+        HStack {
+            PlayerImageView(profileImage: playerVM.profileImage, size: 100)
+                .onTapGesture {
+                    showPhotoPicker.toggle()
+                }
+            Text("Tap image to choose a new profile picture.")
+                .foregroundColor(Color.theme.secondaryText)
+                .italic()
+                .multilineTextAlignment(.center)
+        }
+    }
+    
+    var soccerDataSection: some View {
+        Section {
+            TextField("Name", text: $player.name)
+                .submitLabel(.next)
+                .textInputAutocapitalization(.words)
+            TextField("Position", text: $player.position)
+                .submitLabel(.next)
+                .textInputAutocapitalization(.words)
+            TextField("Jersey number", text: $player.jerseyNumber)
+                .keyboardType(.numbersAndPunctuation)
+                .submitLabel(.next)
+
+            DatePicker("Date of Birth",
+                       selection: $player.dateOfBirth,
+                       in: ...Date(),
+                       displayedComponents: [.date]
+            )
+            TextField("Team", text: $player.team)
+                .submitLabel(.next)
+            TextField("Age group", text: $player.ageGroup)
+                .submitLabel(.next)
+            Toggle("Goalie?", isOn: $player.isGoalie)
+
+        } header: {
+            Text("Soccer Data")
+        }
+    }
+    
+    var contactDataSection: some View {
+        Section {
+            TextField("Email", text: $player.email)
+                .keyboardType(.emailAddress)
+                .textInputAutocapitalization(.never)
+                .submitLabel(.next)
+
+            TextField("Phone", text: $player.cellPhone)
+                .submitLabel(.next)
+                .keyboardType(.numbersAndPunctuation)
+
+            TextField("@Twitter", text: $player.twitter)
+                .submitLabel(.next)
+                .textInputAutocapitalization(.never)
+                .keyboardType(.twitter)
+            
+            TextField("Instagram", text: $player.instagram)
+                .submitLabel(.done)
+                .textInputAutocapitalization(.never)
+
+        } header: {
+            Text("Contact Data (Leave blank if none)")
+        }
+
+    }
+    
+    var buttons: some View {
+        HStack {
+            Spacer()
+            Button {
+                playerVM.updateProfileInformation()
+                dismiss()
+            } label: {
+                Text("Save".uppercased())
+                    .foregroundColor(.white)
+                    .bold()
+                    .frame(width: 120, height: 40)
+                    .background(Color.green)
+                    .cornerRadius(10)
+            }
+            Spacer()
+            Button {
+                dismiss()
+            } label: {
+                Text("Cancel".uppercased())
+                    .foregroundColor(.white)
+                    .bold()
+                    .frame(width: 120, height: 40)
+                    .background(Color.red)
+                    .cornerRadius(10)
+            }
+            Spacer()
+        }
     }
 }

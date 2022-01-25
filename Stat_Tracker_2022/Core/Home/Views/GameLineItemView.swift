@@ -12,12 +12,12 @@ struct GameLineItemView: View {
     
     var body: some View {
         HStack {
-            VStack {
-                if game.isFutsal {
-                    Text("F")
-                }
-            }
-            .frame(width: 20)
+//            VStack {
+//                if game.isFutsal {
+//                    Text("F")
+//                }
+//            }
+//            .frame(width: 20)
             VStack(alignment: .leading) {
                 Text(game.opponent)
                     .font(.title2)
