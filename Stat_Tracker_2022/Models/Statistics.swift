@@ -24,7 +24,7 @@ struct Statistics {
 //    let shotsFaced: Int
     
     var passPercentage: Double {
-        return Double(passCompletions) / Double(passAttempts) * 100.0
+        return Double(passCompletions) / Double(passAttempts) // * 100.0
     }
     
     var shotsOnTarget: Double {

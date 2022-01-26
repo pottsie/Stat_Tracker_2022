@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct PlayerImageView: View {
-    var profileImage: UIImage?
+    @EnvironmentObject private var playerVM: PlayerProfileViewModel
+//    var profileImage: UIImage?
     var size: CGFloat
     var defaultImage: UIImage = UIImage(named: "profile-default")!
     
     var body: some View {
-        Image(uiImage: profileImage ?? defaultImage)
+        Image(uiImage: playerVM.profileImage ?? defaultImage)
             .resizable()
             .scaledToFit()
             .clipShape(Circle())
@@ -27,12 +28,13 @@ struct PlayerImageView: View {
 struct PlayerImageView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PlayerImageView(profileImage: UIImage(named: "profile-default"),size: 250)
+            PlayerImageView(size: 250)
                 .previewLayout(.sizeThatFits)
             
-            PlayerImageView(profileImage: UIImage(named: "profile-default"),size: 100)
+            PlayerImageView(size: 100)
                 .previewLayout(.sizeThatFits)
                 .preferredColorScheme(.dark)
         }
+        .environmentObject(PlayerProfileViewModel())
     }
 }

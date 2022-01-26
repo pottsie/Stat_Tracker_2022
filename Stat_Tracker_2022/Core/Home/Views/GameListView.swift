@@ -15,8 +15,24 @@ struct GameListView: View {
         NavigationView {
             List {
                 ForEach(gameVM.filteredGameList()) { game in
-                    GameLineItemView(game: game)
+                    NavigationLink {
+                        GameDetailScreen(game: game)
+                    } label: {
+                        GameLineItemView(game: game)
+                    }
+
+//                        .swipeActions(edge: .leading) {
+//                            Button {
+//                                print("Edit game")
+//                            } label: {
+//                                Label("Edit game", systemImage: "pencil")
+//                            }
+//                            .tint(.indigo)
+//                        }
                 }
+//                .onDelete { indices in
+//                    gameVM.deleteGame(indices: indices)
+//                }
                 .onDelete(perform: gameVM.deleteGame)
             }
             .fullScreenCover(isPresented: $showAddGameSheet, content: {

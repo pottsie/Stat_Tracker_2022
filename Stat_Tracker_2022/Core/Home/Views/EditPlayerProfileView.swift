@@ -40,7 +40,7 @@ struct EditPlayerProfileView_Previews: PreviewProvider {
 extension EditPlayerProfileView {
     var imageSelectionSection: some View {
         HStack {
-            PlayerImageView(profileImage: playerVM.profileImage, size: 100)
+            PlayerImageView(size: 100)
                 .onTapGesture {
                     showPhotoPicker.toggle()
                 }

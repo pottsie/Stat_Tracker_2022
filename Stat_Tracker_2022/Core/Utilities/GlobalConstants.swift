@@ -8,9 +8,7 @@
 import Foundation
 
 enum GameType: String, CaseIterable {
-case all
-case futsal
-case outdoor
+    case all
+    case futsal
+    case outdoor
 }
-
-

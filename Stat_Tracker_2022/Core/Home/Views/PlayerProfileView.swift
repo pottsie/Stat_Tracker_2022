@@ -15,7 +15,7 @@ struct PlayerProfileView: View {
     var body: some View {
         NavigationView {
             VStack {
-                PlayerImageView(profileImage: playerVM.profileImage, size: 200)
+                PlayerImageView(size: 200)
                 
                 soccerData
                 
