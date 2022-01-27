@@ -36,7 +36,7 @@ struct GameListView: View {
                 .onDelete(perform: gameVM.deleteGame)
             }
             .fullScreenCover(isPresented: $showAddGameSheet, content: {
-                AddGameView()
+                AddGame()
             })
             .listStyle(PlainListStyle())
             .navigationTitle(title)

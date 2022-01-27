@@ -31,6 +31,7 @@
 		278B3917279EF79600647142 /* PersistenceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278B3916279EF79600647142 /* PersistenceConstants.swift */; };
 		278B3919279F29CF00647142 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278B3918279F29CF00647142 /* PhotoPicker.swift */; };
 		278B391B279F2A3800647142 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278B391A279F2A3800647142 /* LocalFileManager.swift */; };
+		27F5095127A230FA001C85B7 /* AddGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5095027A230FA001C85B7 /* AddGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		278B3916279EF79600647142 /* PersistenceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceConstants.swift; sourceTree = "<group>"; };
 		278B3918279F29CF00647142 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		278B391A279F2A3800647142 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
+		27F5095027A230FA001C85B7 /* AddGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				27588F27279DFC1300724229 /* GameLineItemView.swift */,
 				273BE517279E1F84009CEA6B /* AddGameView.swift */,
 				2713344727A0899A004963F0 /* GameDetailScreen.swift */,
+				27F5095027A230FA001C85B7 /* AddGame.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				27588F28279DFC1300724229 /* GameLineItemView.swift in Sources */,
 				27588F19279DB42F00724229 /* Double.swift in Sources */,
 				27588EF5279D7CDC00724229 /* Stat_Tracker_2022App.swift in Sources */,
+				27F5095127A230FA001C85B7 /* AddGame.swift in Sources */,
 				273BE518279E1F84009CEA6B /* AddGameView.swift in Sources */,
 				278B391B279F2A3800647142 /* LocalFileManager.swift in Sources */,
 			);

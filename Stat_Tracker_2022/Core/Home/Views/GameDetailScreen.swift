@@ -55,8 +55,8 @@ struct GameDetailScreen: View {
 struct GameDetailScreen_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-        GameDetailScreen(game: dev.game)
-            .environmentObject(PlayerProfileViewModel())
+            GameDetailScreen(game: dev.game)
+                .environmentObject(PlayerProfileViewModel())
         }
     }
 }
@@ -247,7 +247,7 @@ extension GameDetailScreen {
             Text("Game Notes".uppercased())
                 .font(.caption)
                 .foregroundColor(Color.theme.secondaryText)
-            Text("Solid defensive game.")
+            Text(game.notes)
                 .font(.headline)
                 .multilineTextAlignment(.center)
                 .padding(5)

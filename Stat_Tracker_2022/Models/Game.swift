@@ -18,6 +18,26 @@ struct Game: Identifiable, Codable {
     var isFutsal: Bool
     var statistics: Statistics
     
+    init() {
+        opponent = ""
+        dateOfGame = Date()
+        ourScore = 0
+        opponentScore = 0
+        notes = "Game notes"
+        isFutsal = false
+        statistics = Statistics()
+    }
+    
+    init(opponent: String, dateOfGame: Date, ourScore: Int, opponentScore: Int, notes: String, isFutsal: Bool, statistics: Statistics) {
+        self.opponent = opponent
+        self.dateOfGame = dateOfGame
+        self.ourScore = ourScore
+        self.opponentScore = opponentScore
+        self.notes = notes
+        self.isFutsal = isFutsal
+        self.statistics = statistics
+    }
+    
     var gameResult: String {
         if ourScore > opponentScore {
             return "W \(ourScore)-\(opponentScore)"

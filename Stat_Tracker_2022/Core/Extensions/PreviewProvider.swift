@@ -48,8 +48,8 @@ class DeveloperPreview {
             assists: 1,
             shots: 3,
             shotsOnGoal: 1,
-            passAttempts: 7,
-            passCompletions: 6,
+            passAtt: 7,
+            passComp: 6,
             blocks: 1,
             clearances: 2,
             interceptions: 3))

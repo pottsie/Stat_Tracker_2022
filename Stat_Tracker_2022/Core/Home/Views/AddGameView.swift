@@ -62,7 +62,7 @@ struct AddGameView: View {
             HStack {
                 Spacer()
                 Button {
-                    gameVM.addGame(opponent: opponent, dateOfGames: dateOfGame, ourScore: ourScore, opponentScore: opponentScore, isFutsal: isFutsal, notes: notes, stats: Statistics(minutesPlayed: minutesPlayed, goals: goals, assists: assists, shots: shots, shotsOnGoal: shotsOnGoal, passAttempts: passAttempts, passCompletions: passCompletions, blocks: blocks, clearances: clearances, interceptions: interceptions))
+//                    gameVM.addGame(opponent: opponent, dateOfGames: dateOfGame, ourScore: ourScore, opponentScore: opponentScore, isFutsal: isFutsal, notes: notes, stats: Statistics(minutesPlayed: minutesPlayed, goals: goals, assists: assists, shots: shots, shotsOnGoal: shotsOnGoal, passAtt: passAttempts, passComp: passCompletions, blocks: blocks, clearances: clearances, interceptions: interceptions))
                     dismiss()
                 } label: {
                     Text("Save".uppercased())
@@ -103,8 +103,10 @@ extension AddGameView {
         VStack {
             HStack {
                 Text("Opponent: ")
+                    .foregroundColor(Color.theme.secondaryText)
                 Spacer()
                 TextField("Opponent", text: $opponent)
+                    .foregroundColor(Color.theme.accent)
             }
             DatePicker("Date of Game",
                        selection: $dateOfGame,
