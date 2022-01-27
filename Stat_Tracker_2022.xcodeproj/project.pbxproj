@@ -95,6 +95,7 @@
 		27588EF3279D7CDC00724229 /* Stat_Tracker_2022 */ = {
 			isa = PBXGroup;
 			children = (
+				27F761F727A320E200B7F81E /* OLD-FILES */,
 				27588EF4279D7CDC00724229 /* Stat_Tracker_2022App.swift */,
 				27588F02279D7D3100724229 /* Core */,
 				27588F1A279DBF6D00724229 /* Components */,
@@ -147,14 +148,10 @@
 		27588F07279D7EEA00724229 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				27F761FA27A3211200B7F81E /* Statistics */,
+				27F761F927A3210300B7F81E /* Games */,
+				27F761F827A320F500B7F81E /* PlayerProfile */,
 				27F761F427A31C7100B7F81E /* Settings */,
-				27588F14279DB38B00724229 /* PlayerProfileView.swift */,
-				278B3914279ED66A00647142 /* EditPlayerProfileView.swift */,
-				27588F20279DF3B100724229 /* GameListView.swift */,
-				27588F27279DFC1300724229 /* GameLineItemView.swift */,
-				273BE517279E1F84009CEA6B /* AddGameView.swift */,
-				2713344727A0899A004963F0 /* GameDetailScreen.swift */,
-				27F5095027A230FA001C85B7 /* AddGame.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +208,41 @@
 				27F761F527A31C7F00B7F81E /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		27F761F727A320E200B7F81E /* OLD-FILES */ = {
+			isa = PBXGroup;
+			children = (
+				273BE517279E1F84009CEA6B /* AddGameView.swift */,
+			);
+			path = "OLD-FILES";
+			sourceTree = "<group>";
+		};
+		27F761F827A320F500B7F81E /* PlayerProfile */ = {
+			isa = PBXGroup;
+			children = (
+				27588F14279DB38B00724229 /* PlayerProfileView.swift */,
+				278B3914279ED66A00647142 /* EditPlayerProfileView.swift */,
+			);
+			path = PlayerProfile;
+			sourceTree = "<group>";
+		};
+		27F761F927A3210300B7F81E /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				27588F20279DF3B100724229 /* GameListView.swift */,
+				27588F27279DFC1300724229 /* GameLineItemView.swift */,
+				2713344727A0899A004963F0 /* GameDetailScreen.swift */,
+				27F5095027A230FA001C85B7 /* AddGame.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		27F761FA27A3211200B7F81E /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Statistics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
