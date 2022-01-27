@@ -12,3 +12,11 @@ enum GameType: String, CaseIterable {
     case futsal
     case outdoor
 }
+
+struct SoccerData {
+    
+    // Length of game -> used in normalizing statistics
+    // Value varies based on Age Group
+    var outdoorGameLength: Double = 80.0
+    
+}

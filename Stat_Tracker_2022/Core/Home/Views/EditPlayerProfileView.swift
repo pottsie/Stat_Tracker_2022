@@ -22,8 +22,8 @@ struct EditPlayerProfileView: View {
             Form {
                 soccerDataSection
                 contactDataSection
+                buttonSection
             }
-            buttons
             Spacer()
         }
     }
@@ -38,6 +38,22 @@ struct EditPlayerProfileView_Previews: PreviewProvider {
 }
 
 extension EditPlayerProfileView {
+    var buttonSection: some View {
+        Section {
+            Button {
+                playerVM.updateProfileInformation()
+                dismiss()
+            } label: {
+                Text("Save Changes")
+            }
+            Button(role: .destructive) {
+                dismiss()
+            } label: {
+                Text("Cancel and Discard Changes")
+            }
+        }
+    }
+    
     var imageSelectionSection: some View {
         HStack {
             PlayerImageView(size: 100)
@@ -101,36 +117,6 @@ extension EditPlayerProfileView {
 
         } header: {
             Text("Contact Data (Leave blank if none)")
-        }
-
-    }
-    
-    var buttons: some View {
-        HStack {
-            Spacer()
-            Button {
-                playerVM.updateProfileInformation()
-                dismiss()
-            } label: {
-                Text("Save".uppercased())
-                    .foregroundColor(.white)
-                    .bold()
-                    .frame(width: 120, height: 40)
-                    .background(Color.green)
-                    .cornerRadius(10)
-            }
-            Spacer()
-            Button {
-                dismiss()
-            } label: {
-                Text("Cancel".uppercased())
-                    .foregroundColor(.white)
-                    .bold()
-                    .frame(width: 120, height: 40)
-                    .background(Color.red)
-                    .cornerRadius(10)
-            }
-            Spacer()
         }
     }
 }

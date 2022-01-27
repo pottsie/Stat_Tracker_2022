@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Statistics {
+struct Statistics: Codable {
     
+//    let id: String
     let minutesPlayed: Int
     let goals: Int
     let assists: Int
@@ -24,15 +25,19 @@ struct Statistics {
 //    let shotsFaced: Int
     
     var passPercentage: Double {
-        return Double(passCompletions) / Double(passAttempts) // * 100.0
+        if passAttempts > 0 {
+            return Double(passCompletions) / Double(passAttempts)
+        } else {
+            return 0.0
+        }
     }
     
     var shotsOnTarget: Double {
-        return Double(shotsOnGoal) / Double(shots) * 100.0
+        return Double(shotsOnGoal) / Double(shots)
     }
     
 //    var savePercentage: Double {
-//        return Double(saves) / Double(shotsFaced) * 100.0
+//        return Double(saves) / Double(shotsFaced)
 //    }
     
 }

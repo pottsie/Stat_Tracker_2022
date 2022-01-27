@@ -14,6 +14,7 @@ struct GameDetailScreen: View {
     var body: some View {
         VStack(spacing: 25) {
             header
+                .padding(.top, 10)
             
             gameInformation
             

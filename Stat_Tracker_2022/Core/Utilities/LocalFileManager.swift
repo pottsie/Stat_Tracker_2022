@@ -13,6 +13,7 @@ class LocalFileManager {
     static let instance = LocalFileManager()
     
     let folderName = "PlayerStats"
+    let gamesFile = "gamedata.json"
     
     init() {
         createFolderIfNeeded()
@@ -38,7 +39,7 @@ class LocalFileManager {
             }
         }
     }
-    
+        
     func saveImage(image: UIImage, name: String) {
         guard
             let data = image.jpegData(compressionQuality: 0.5),
@@ -97,5 +98,62 @@ class LocalFileManager {
                 }
         return path
     }
+    
+    func getPathForFile(name: String) -> URL? {
+        guard
+            let path = FileManager
+                .default
+                .urls(for: .cachesDirectory, in: .userDomainMask)
+                .first?
+                .appendingPathComponent(folderName)
+                .appendingPathComponent(gamesFile) else {
+                    print("Error getting data path")
+                    return nil
+                }
+        return path
+    }
+    
+    func saveGames(games: [Game]) {
+        // encode games with json
+        let data = encodeGames(games: games)
+        guard let path = getPathForFile(name: gamesFile) else {
+            print("Error getting file path")
+            return
+        }
+        
+        do {
+            try data?.write(to: path)
+            return
+        } catch let error {
+            print("Error writing the data \(error)")
+            return
+        }
+    }
+    
+    func encodeGames(games: [Game]) -> Data? {
+        do {
+            let data = try JSONEncoder().encode(games)
+            return data
+        } catch let error {
+            print("Error encoding data \(error)")
+            return nil
+        }
+    }
+    
+    func loadGames() -> [Game]? {
+        guard
+            let path = getPathForFile(name: gamesFile)?.path,
+            FileManager.default.fileExists(atPath: path) else {
+                print("Error getting path.")
+                return nil
+            }
+        do {
+            let data = try Data(contentsOf: URL(string: path)!)
+            let games = try JSONDecoder().decode([Game].self, from: data)
+            return games
+        } catch let error {
+            print("Error reading the data from the file. \(error)")
+            return nil
+        }
+    }
 }
-

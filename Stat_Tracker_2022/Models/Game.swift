@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct Game: Identifiable {
+struct Game: Identifiable, Codable {
     
-    let id: String = UUID().uuidString
-    let opponent: String
-    let dateOfGame: Date
-    let ourScore: Int
-    let opponentScore: Int
-    let notes: String
-    let isFutsal: Bool
-    let statistics: Statistics
+    var id: String = UUID().uuidString
+    var opponent: String
+    var dateOfGame: Date
+    var ourScore: Int
+    var opponentScore: Int
+    var notes: String
+    var isFutsal: Bool
+    var statistics: Statistics
     
     var gameResult: String {
         if ourScore > opponentScore {
