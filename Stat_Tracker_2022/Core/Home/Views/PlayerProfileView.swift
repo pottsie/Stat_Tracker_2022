@@ -11,6 +11,7 @@ struct PlayerProfileView: View {
     @EnvironmentObject private var playerVM: PlayerProfileViewModel
 //    let player: PlayerProfile
     @State var showProfileEditSheet: Bool = false
+    @State var showSettingsView: Bool = false
     
     var body: some View {
         NavigationView {
@@ -28,6 +29,7 @@ struct PlayerProfileView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         // TODO: Define settings
+                        showSettingsView.toggle()
                     } label: {
                         Label("Settings", systemImage: "gear")
                     }
@@ -42,6 +44,9 @@ struct PlayerProfileView: View {
             }
             .sheet(isPresented: $showProfileEditSheet) {
                 EditPlayerProfileView(player: $playerVM.player)
+            }
+            .sheet(isPresented: $showSettingsView) {
+                SettingsView()
             }
         }
     }

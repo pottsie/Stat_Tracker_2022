@@ -85,6 +85,7 @@ extension GameDetailScreen {
             .frame(width: 225, alignment: .leading)
             Spacer()
         }
+        .padding(.top)
     }
     
     var gameInformation: some View {

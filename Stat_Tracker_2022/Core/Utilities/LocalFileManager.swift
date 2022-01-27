@@ -85,6 +85,24 @@ class LocalFileManager {
         }
     }
     
+    func deleteGames() {
+        guard
+            let path = getPathForFile(name: gamesFile),
+            FileManager.default.fileExists(atPath: path.path) else {
+                print("Error getting path.")
+                return
+            }
+        
+        do {
+            try FileManager.default.removeItem(at: path)
+            return
+        } catch let error {
+            print("Error deleting games data. \(error)")
+            return
+        }
+    }
+
+    
     func getPathForImage(name: String) -> URL? {
         guard
             let path = FileManager
@@ -123,6 +141,7 @@ class LocalFileManager {
         
         do {
             try data?.write(to: path)
+            print("GAME DATA SAVED \(path)")
             return
         } catch let error {
             print("Error writing the data \(error)")
@@ -148,7 +167,8 @@ class LocalFileManager {
                 return nil
             }
         do {
-            let data = try Data(contentsOf: URL(string: path)!)
+            print("\(path)")
+            let data = try Data(contentsOf: getPathForFile(name: gamesFile)!)
             let games = try JSONDecoder().decode([Game].self, from: data)
             return games
         } catch let error {

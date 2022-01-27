@@ -8,19 +8,19 @@
 import Foundation
 
 class GameViewModel: ObservableObject {
-    @Published var games: [Game] = []
-    @Published var filter: GameType = .all
+    @Published var games: [Game]
+    @Published var filter: GameType
     
-//    init() {
-//        self.filter = .all
-//        if LocalFileManager.instance.loadGames() == nil {
-//            print("INITIALIZING NEW ARRAY")
-//            self.games = []
-//        } else {
-//            print("LOADING GAMES FROM FILE")
-//            self.games = LocalFileManager.instance.loadGames()!
-//        }
-//    }
+    init() {
+        self.filter = .all
+        if LocalFileManager.instance.loadGames() == nil {
+            print("INITIALIZING NEW ARRAY")
+            self.games = []
+        } else {
+            print("LOADING GAMES FROM FILE")
+            self.games = LocalFileManager.instance.loadGames()!
+        }
+    }
     
     func filteredGameList() -> [Game] {
         switch filter {
@@ -37,6 +37,7 @@ class GameViewModel: ObservableObject {
     
     func deleteGame(indices: IndexSet) {
         games.remove(atOffsets: indices)
+        saveGames()
     }
     
     func addGame(game: Game) {
@@ -48,15 +49,4 @@ class GameViewModel: ObservableObject {
     func saveGames() {
         LocalFileManager.instance.saveGames(games: games)
     }
-    
-//    func loadGameData() -> [Game] {
-//        let data = LocalFileManager.instance.loadGames()!
-//        do {
-//            let games = try JSONDecoder().decode([Game].self, from: data)
-//            return games
-//        } catch let error {
-//            print("Unable to decode game data \(error)")
-//            return []
-//        }
-//    }
 }

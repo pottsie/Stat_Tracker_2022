@@ -32,6 +32,7 @@
 		278B3919279F29CF00647142 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278B3918279F29CF00647142 /* PhotoPicker.swift */; };
 		278B391B279F2A3800647142 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278B391A279F2A3800647142 /* LocalFileManager.swift */; };
 		27F5095127A230FA001C85B7 /* AddGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5095027A230FA001C85B7 /* AddGame.swift */; };
+		27F761F627A31C7F00B7F81E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F761F527A31C7F00B7F81E /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		278B3918279F29CF00647142 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		278B391A279F2A3800647142 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		27F5095027A230FA001C85B7 /* AddGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGame.swift; sourceTree = "<group>"; };
+		27F761F527A31C7F00B7F81E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		27588F07279D7EEA00724229 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				27F761F427A31C7100B7F81E /* Settings */,
 				27588F14279DB38B00724229 /* PlayerProfileView.swift */,
 				278B3914279ED66A00647142 /* EditPlayerProfileView.swift */,
 				27588F20279DF3B100724229 /* GameListView.swift */,
@@ -200,6 +203,14 @@
 				278B391A279F2A3800647142 /* LocalFileManager.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		27F761F427A31C7100B7F81E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				27F761F527A31C7F00B7F81E /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +292,7 @@
 				27588F24279DF94400724229 /* GlobalConstants.swift in Sources */,
 				27588F0A279D820200724229 /* TabbedHomeView.swift in Sources */,
 				278B3919279F29CF00647142 /* PhotoPicker.swift in Sources */,
+				27F761F627A31C7F00B7F81E /* SettingsView.swift in Sources */,
 				27588F06279D7DD100724229 /* PreviewProvider.swift in Sources */,
 				27588F1D279DBF8F00724229 /* PlayerImageView.swift in Sources */,
 				27588F0F279D8A2D00724229 /* Color.swift in Sources */,

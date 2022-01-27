@@ -17,6 +17,7 @@ struct AddGame: View {
             Text("Add New Game")
                 .font(.largeTitle)
                 .bold()
+                .padding(.top)
             Form {
                 Section {
                     TextField(text: $newGame.opponent, prompt: Text("Opponent")) {
